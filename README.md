@@ -1,3 +1,0 @@
-# wasmdiff
-
-## Work in progress
