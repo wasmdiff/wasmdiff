@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WASM perf test</title>
+
+</head>
+<body>
+
+  <script>
+    var run = false;
+    var times = 0;
+  </script>
+
+  <script defer src="libnettle.browser.js"></script>
+  <script defer src="sha256.browser.wasm.js"></script>
+
+  <h1>SHA-256 Program</h1>
+  <h2>This program hashes a 100 byte, 1 kb, and 1mb string a specified number of times.</h2>
+
+  <div id="bench10">
+    <h2>10 Runs:</h2>
+    <!-- benchmarking added by javascript for one run-->
+  </div>
+
+  <div id="bench100">
+    <h2>100 Runs:</h2>
+    <!-- benchmarking added by javascript for one run-->
+  </div>
+
+  <div id="bench1000">
+    <h2>1000 Runs (This will take 10-15 seconds):</h2>
+    <!-- benchmarking added by javascript for one run-->
+  </div>
+
+  <br>
+
+  <!-- Button to run 10 times -->
+  <button onclick="ten()" id="t">Run 10 Times</button><br><br>
+  <!-- Button to run 100 times -->
+  <button onclick="hundred()" id="h">Run 100 Times</button><br><br>
+   <!-- Button to run 1000 times -->
+  <button onclick="thousand()" id="t">Run 1000 Times</button><br><br>
+
+  <form action="../index.html" style="position: absolute; left: 0;">
+    <input type="submit" value="Back to Home Page" id="back"/>
+  </form>
+
+  <script>
+    function ten(){
+      run = true;
+      times = 10;
+      onRuntimeInitialized();
+    }
+
+    function hundred(){
+      run = true;
+      times = 100;
+      onRuntimeInitialized()
+    }
+
+    function thousand(){
+      run = true;
+      times = 1000;
+      onRuntimeInitialized()
+    }
+
+    run = false;
+  </script>
+
+</body>
+</html>

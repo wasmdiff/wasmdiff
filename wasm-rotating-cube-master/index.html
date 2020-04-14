@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <!-- Button to go to home page -->
+    <form action="../index.html">
+        <input type="submit" value="Back to Home Page" id="back"/>
+    </form>
+
+    <div id="benchmarks" style="font-weight: bold";>
+        <!-- benchmarking added by javascript -->
+    </div>  
+
+    <script src="wasm_exec.js"></script>
+
+    <style>
+        body,pre { margin:0;padding:0; }
+        #gocanvas {
+            position:fixed;
+            opacity: .5;
+            width: 100%;
+            height:100%;
+            margin-top: 70px;
+            top:0;right:0;bottom:0;left:0;
+        }
+    </style>
+
+
+</head>
+<body>
+    <canvas id="gocanvas">Your browser doesn't appear to support the canvas tag.</canvas>
+</body>
+</html>

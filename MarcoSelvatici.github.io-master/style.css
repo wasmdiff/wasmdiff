@@ -1,0 +1,360 @@
+/* GENERAL############################################################ */
+body{
+	background: #bfbfbf; 
+	font-family: Arial;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+h2{
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
+.mainHr{
+	width: 1070;
+	border-top: 3px solid #003666;
+}
+/* ANIMATIONS #######################################################*/
+@keyframes appear{
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+		
+/* POPUP ############################################################ */
+.popup{
+	display: none;
+	visibility: hidden;
+	width: 600px;
+	height: auto;
+	background-color: #003666;
+	color: #f2f2f2;
+	text-align: left;
+	border-radius: 6px;
+	padding: 2px 16px;
+	position: absolute;
+	z-index: 100; /* foreground*/
+	left: 50%;
+	margin-left: -300px;
+	line-height: 1.3em;
+	font-size: 20px;
+	cursor: initial;
+	/*animation: appear;
+	animation-duration: 0.2s;*/
+}
+.popupLink{
+	text-decoration: underline;
+	color: white;
+}
+/* NAVIGATION BAR ############################################################ */
+.topnav {
+	position: fixed;
+	background-color: #003666;
+	width: 1200;
+	top: 0;
+	margin:auto;
+	z-index: 3;
+	user-select: none;
+}
+.topnav div {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 22px;
+}
+.topnav div:hover {
+	background-color: #f2f2f2;
+	color: #003666;
+	transition: background-color 0.2s linear;
+}
+
+/* PARTS ############################################################ */
+#mainPart{
+	width: 1200;
+	height: auto;
+	color: #003666;
+	text-align: center;
+	background: #f2f2f2;
+	margin: auto;
+}
+#profileImage{
+	width: 1200;
+}
+.parallaxImage{
+	top: 53px;
+	width: 1200;
+	height: 600;
+	position: fixed;
+	z-index: -2;
+}
+#info{
+	margin-top:653;
+}
+#name{
+	font-size: 40;
+}
+#briefly{
+	font-size: 25px;
+	text-align: center;
+}
+#more{
+	font-weight: bold;
+	font-size: 18px;
+	text-align: center;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#personalDetails{
+	margin: auto;
+	width: 1006;
+	/* background: #d9d9d9; */
+	display: none;
+	border-style: solid;
+	border-color: #003666;
+	border-width: 3px;
+	border-radius: 5px;
+	padding: 25 30;
+	animation: appear;
+	animation-duration: 1s;
+}
+#personalDetails h3{
+	font-size: 23px;
+	font-weight: bold;
+	text-align: left;
+	margin: 5 0;
+}
+#personalDetails p{
+	margin: 0;
+	text-align: left;
+	font-size: 20px;
+	line-height: 1.3em;
+}
+.blockTitle{
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	margin: 10;
+}
+.blockParagraph{
+	font-size: 18px;
+	text-align: center;
+	margin: 15;
+}
+
+/* STUDIES ############################################################ */
+.blockLeftStudies{
+	margin-left: 70;
+	width: 500;
+	height: 470;
+	display: inline-block;
+	float: left;
+	margin-bottom: 20;
+	border-radius: 10px;
+	background: #d9d9d9;
+	transition: transform 0.15s;
+	position:relative;
+}
+.blockRightStudies{
+	margin-right: 70;
+	width: 500;
+	height: 470;
+	display: inline-block;
+	float: right;
+	margin-bottom: 20;
+	border-radius: 10px;
+	background: #d9d9d9;
+	transition: transform 0.15s;
+	position:relative;
+}
+.blockLeftStudies:hover{
+	background-color: #003666;
+	color: #f2f2f2;
+	transform: scale(1.05);
+	z-index: 2;
+}
+.blockRightStudies:hover{
+	background-color: #003666;
+	color: #f2f2f2;
+	transform: scale(1.05);
+	z-index: 2;
+}
+#studiesPart{
+	height: 530;
+}
+#studiesPart .smallHr{
+	width: 470;
+	border-top: 2px solid #003666;
+}
+#imperialImage{
+	width: 500;
+	height: 283;
+}
+#alberghettiImage{
+	width: 500;
+	height: 283;
+}
+
+/* PROJECTS ############################################################ */
+.blockProject{
+	background: #d9d9d9; /* #ffcc80 */
+	margin: 10;
+	width: 250;
+	height: 270;
+	display: inline-block;
+	float: left;
+	margin-bottom: 20;
+	border-radius: 10px;
+	transition: transform 0.15s;
+	position:relative;
+}
+.blockProject:hover{
+	background-color: #003666;
+	color: #f2f2f2;
+	transform: scale(1.05);
+	z-index: 2;
+}
+
+#projectsPart{
+	margin: auto;
+	height: 945;
+	width: 1085;
+}
+
+.projectsImage{
+	width: 250;
+	height: 185;
+}
+
+/* ARTIFICIAL INTELLIGENCE ############################################################ */
+.blockAI{
+	background: #d9d9d9;
+	margin: 10;
+	width: 250;
+	height: 245;
+	display: inline-block;
+	float: left;
+	margin-bottom: 20;
+	border-radius: 10px;
+	transition: transform 0.15s;
+	position:relative;
+}
+.blockAI:hover{
+	background-color: #003666;
+	color: #f2f2f2;
+	transform: scale(1.05);
+	z-index: 2;
+}
+
+
+#AIPart{
+	margin: auto;
+	height: 359;
+	width: 1085;
+}
+.AIImage{
+	width: 250;
+	height: 160;
+}
+#nnImage{
+	background: #666666;
+}
+
+/* PHOTOS ############################################################ */
+#photosPart{
+	height: 630;
+}
+.slideshowCenter{
+	z-index: 0;
+	display: inline-block;
+	height: 525;
+	width: 700;
+	background: #f2f2f2;
+	margin: auto;
+	float: center;
+	z-index:0;
+}
+.slide{
+	margin-left: -350px;
+	position: absolute;
+	height: 525;
+	width: 700;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+	z-index:0;
+}
+.slide.opaque{
+	opacity: 1;
+	z-index: 0;
+}
+.prev, .next{
+	height: 525;
+	width: 100;
+	font-weight: bold;
+	font-size: 30px;
+	color: white;
+	position: absolute;
+	user-select: none;
+	cursor: pointer;
+	/* background-color: #003666; */
+	transition: opacity 0.5s;
+	opacity: 0.6; 
+}
+.next {
+	margin-left: 600;
+	text-align:right;
+	border-radius: 3px;
+}
+.prev {
+	text-align:left;
+	border-radius: 3px;
+}
+.prev:hover, .next:hover {
+	opacity: 1;
+}
+#imageDescription{
+	height: 30;
+	width: 500;
+	margin-top: 485;
+	margin-left: 100;
+	position: absolute;
+	color: #f2f2f2;
+	font-size: 20;
+	background-color: #003666;
+	padding-top: 10;
+	cursor: default;
+	opacity: .6;
+	transition: opacity 0.5s;
+}
+#imageDescription:hover{
+	opacity: 1;
+}
+/* END ############################################################ */
+#endPart{
+	background-color: #003666;
+	height: 160;
+	text-align: center;
+	font-weight: bold;
+}
+#copyright{
+	color: #f2f2f2;
+	padding: 1.5em 0em;
+	position: relative;
+	text-align: center;
+	font-size: 20px;
+}
+#copyright img{
+	border-radius: 8px;
+	transition: transform 0.2s;
+}
+#copyright img:hover{
+	/*border-radius: 15px;*/
+	transform: scale(1.3);
+}
