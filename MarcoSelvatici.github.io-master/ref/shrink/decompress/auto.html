@@ -42,7 +42,7 @@
 
 </head>
 
-<body>
+<body onload="setTimeout(auto_decompress_from_file, 500)">
 	<div id="advancedMenu">
 		<div class="menuLine">
 			<img src="ref/githubIcon.png" width="30px" height="30px">
@@ -80,17 +80,15 @@
 		</header>
 		<div id="mainPart">
 
+			<!-- Modified to replace normal file upload process-->
 			<div id="fileArea">
-				<div id="dropArea" ondrop="recieve_dropped_files(event);" ondragover="drag_over(event);" ondragleave="drag_leave(event);">
-					<p>Drop your .zst file(s) here</p>
-					<p style="font-size: 0.8em; margin-top: -9px;">or</p>
-					<label for="fileSelector">
-						<img src="ref/searchIcon.png" width="23x" height="23px">
-						Browse
-					</label>
-					<input id="fileSelector" type="file" multiple="multiple">
+				<div id="dropArea">
+					<p>In automated process, the target file </p>
+					<p>"jquery-3.5.0.min.js.zst" is stored on the server.</p>
+					<p>You can check original jquery file <a href="https://jquery.com/download/" target="_blank">Here</a>.</p>
 				</div>
 			</div>
+
 			<div id="statsArea">
 				<!-- fileStats boxes will be added here via JavaScript -->
 			</div>
@@ -99,8 +97,8 @@
 	<footer>
 		<div id="rightFooter">
 			<button id="freeMemoryBtn" disabled title="No memory has been allocated yet">
-				<img src="ref/refreshIcon.png" width="22x" height="22px" style="transform: translate(-3px, 3px);">
-				Free Memory
+				<img src="ref/refreshIcon.png" width="22px" height="22px" style="transform: translate(-3px, 3px);">
+				Reload
 			</button>
 		</div>
 	</footer>
@@ -223,10 +221,7 @@
 	function update_fileStats_box_time(file_name, time){
 		var timeLabelId = "timeLabel_" + file_name;
 		var timeLabel = document.getElementById(timeLabelId);
-		if(time > 1000)
-			timeLabel.innerHTML = 'Time: ' + (time/1000).toFixed(3) + " s";
-		else
-			timeLabel.innerHTML = 'Time: ' + time.toFixed(0) + " ms";
+		timeLabel.innerHTML = 'Time: ' + time.toFixed(3) + " ms";
 	}
 	
 	function update_fileStats_box_size(file_name, original_size, final_size){
@@ -413,10 +408,44 @@
 	}
 
 	// add the event listener
-	document.getElementById("fileSelector").addEventListener("change", recieve_selected_files);
+	//document.getElementById("fileSelector").addEventListener("change", recieve_selected_files);
 
 	// add event listener to refresh the page
 	document.getElementById("freeMemoryBtn").addEventListener("click", function(){location.reload();});
+
+	function auto_decompress_from_file() {
+		var file_name = "jquery-3.5.0.min.js.zst";
+		var fn = new XMLHttpRequest();
+		if(fn === null) {
+			console.log("XMLHTTPRequest fail to run!");
+		}
+		else {
+			fn.open('GET', file_name, true);
+			fn.send(null);
+			fn.onreadystatechange = doResult;
+			function doResult() {
+				if(fn.readyState === 4)
+				{
+					if(fn.status  === 200)
+					{
+						var file_content = fn.responseText;
+						var buffer = new ArrayBuffer(file_content.length);
+						var raw_data = new Uint8Array(buffer); 							// getting bytes in as a Uint8Array
+						var strs = file_content.split("");
+						for(var i = 0 ; i < strs.length; i++){
+							raw_data[i] = strs[i].charCodeAt();
+						}
+						create_fileStats_box(file_name); 								// create the box under the drop area
+						update_fileStats_box_icon(file_name, "load", true); 			// update icon with success
+						allow_free_memory_button();
+						var decompressed_data = decompress_byteArray(raw_data, file_name);	// compress the Uint8Array of bytes
+						download_binary_file(decompressed_data, file_name.substring(0, file_name.length - 4));	// removing .zst from the name and download the file
+					}
+				}
+			}
+		}
+	}
+
 	</script>
 
 
