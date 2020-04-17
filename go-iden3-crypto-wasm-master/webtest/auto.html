@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>go-iden3-crypto wasm experiments</title>
+	<title>go-iden3-crypto wasm experiments (Auto)</title>
 	<style type="text/css">
 		body {
 			width:60%;
@@ -23,14 +23,13 @@
 	<script src="wasm_exec.js"></script>
 	<script src="iden3js-bundle.js"></script>
 
-
 	<h1>This program hashes a string a specified number of times using Poseidon.</h1>
 
 	<!-- buttons for each number of runs-->
 	<!-- calls benchmark function in index.js
 	<button onClick="benchmark(10);">Hash 10 Times</button><br><br>
 	<button onClick="benchmark(100);">Hash 100 Times</button><br><br>
-	<button onClick="benchmark(1000);">Hash 1000 Times</button><br><br>-->
+	<button id="results_b" onclick="benchmark(1000);">Hash 1000 Times</button><br><br>-->
 
 	<div id="thousand">
 		<h2>Automatic run 1000 times:</h2>
@@ -42,6 +41,9 @@
 		WebAssembly.instantiateStreaming(fetch('go-iden3-crypto.wasm'), go.importObject).then(function(dat) {
 		    go.run(dat.instance);
 		});
+		window.onload = function () {
+			document.getElementById('results_b').click();
+		};
 	</script>
 
 	<script src="index.js"></script>

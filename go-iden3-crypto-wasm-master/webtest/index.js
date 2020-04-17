@@ -86,4 +86,3 @@ function assert(a, b) {
 		console.error("Expected to be equal:\n", a, "\n", b);
 	}
 }
-
