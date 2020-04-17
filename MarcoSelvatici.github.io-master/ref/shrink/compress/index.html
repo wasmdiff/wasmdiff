@@ -38,7 +38,7 @@
         var message = "Compressor%0ALang: " + user_lang + "%0AOS: " + user_platform + "%0ABrowser: " + browser;
         xhr.open("GET", "https://api.telegram.org/bot"+token+"/sendMessage?chat_id=199375311&text="+message, true);
         xhr.send();
-	</script>
+    </script>
 </head>
 
 <body>
@@ -71,19 +71,16 @@
 					<div class="product" style="float:left; background-color: rgb(235, 235, 235);">
 						<a href="https://marcoselvatici.github.io/ref/shrink/compress/index.html" style="color: rgb(0, 111, 167)">Compression</a>
 					</div>
+					<div class="product" style="float:right;">
+						<a href="https://marcoselvatici.github.io/ref/shrink/decompress/index.html">Decompression</a>
+					</div>
 				</div>
 				<div id="advanced" onclick="open_menu(event)">
 					<img src="ref/advancedIcon.png" width="40px" height="40px">
 				</div>
 			</div>
 		</header>
-
 		<div id="mainPart">
-
-			<form action="../../../../index.html" style="position: absolute; left: 0;">
-				<input type="submit" value="Back to Home Page" id="back"/>
-			</form>
-
 			<div id="fileArea">
 				<div id="dropArea" ondrop="recieve_dropped_files(event);" ondragover="drag_over(event);" ondragleave="drag_leave(event);">
 					<p>Drop your file(s) here</p>
@@ -344,7 +341,6 @@
 
 	// tries to compress the data
 	function compress_or_die(compressed_data_ptr, estimated_size_of_compressed_data, raw_data_ptr, size_of_data, compression_level, file_name){
-
 		const actual_size_of_compressed_data = ZSTD_compress(compressed_data_ptr,				// WASM call
 															estimated_size_of_compressed_data,	
 															raw_data_ptr, size_of_data,			
@@ -357,54 +353,54 @@
 		}
 		update_fileStats_box_icon(file_name, "compress", true);			// update icon with success	
 		return actual_size_of_compressed_data;
-				
 	}
 
 	// compress the js Uint8Array of bytes and return another Uint8Array with the compressed bytes
 	// here happen all the calls to WASM functions
 	function compress_byteArray(raw_data, file_name){
-			const size_of_data = raw_data.length; // size of my data
+		const size_of_data = raw_data.length; // size of my data
 
-			// I only have 5Mb of stack
-			// instead of passing the array to ZSTD_compress I am copying it into the heap and then pass a pointer to it
-			const raw_data_ptr = malloc_or_die(size_of_data, file_name);
-			// writing the data directly in wasm memory, so I will use everything from the heap
-			Module.HEAPU8.set(raw_data, raw_data_ptr);
+		// I only have 5Mb of stack
+		// instead of passing the array to ZSTD_compress I am copying it into the heap and then pass a pointer to it
+		const raw_data_ptr = malloc_or_die(size_of_data, file_name);
+		// writing the data directly in wasm memory, so I will use everything from the heap
+		Module.HEAPU8.set(raw_data, raw_data_ptr);
 
-			// read compression level
-			var compression_level = get_compression_level();
-			// to measure compression time
-			var TIME_before_compression = performance.now();
-			
-			// calls to wasm for compression
-			const estimated_size_of_compressed_data = ZSTD_compressBound(size_of_data);			// give an estimation space we will allocate
-			const compressed_data_ptr = malloc_or_die(estimated_size_of_compressed_data, file_name);	// allocate that space
-			const actual_size_of_compressed_data = compress_or_die(compressed_data_ptr,			// compress data  and get the real size of compressed data
-															estimated_size_of_compressed_data,
-															raw_data_ptr, size_of_data,		
-															compression_level,
-															file_name);							// file_name is for the DOM update
-			// to measure compression time
-			var TIME_after_compression = performance.now();
-			update_fileStats_box_size(file_name, size_of_data, actual_size_of_compressed_data); 	// update the size
-			update_fileStats_box_time(file_name, TIME_after_compression - TIME_before_compression);	// update time
-			
-			// compressed_data_ptr is a pointer to my compressed data in wasm memory
-			// getting data out of wasm memory
-			var compressed_data = new Uint8Array(Module.HEAPU8.buffer, compressed_data_ptr, actual_size_of_compressed_data);
+		// read compression level
+		var compression_level = get_compression_level();
+		// to measure compression time
+		var TIME_before_compression = performance.now();
+		
+		// calls to wasm for compression
+		const estimated_size_of_compressed_data = ZSTD_compressBound(size_of_data);			// give an estimation space we will allocate
+		const compressed_data_ptr = malloc_or_die(estimated_size_of_compressed_data, file_name);	// allocate that space
+		const actual_size_of_compressed_data = compress_or_die(compressed_data_ptr,			// compress data  and get the real size of compressed data
+														estimated_size_of_compressed_data,
+														raw_data_ptr, size_of_data,		
+														compression_level,
+														file_name);							// file_name is for the DOM update
+		// to measure compression time
+		var TIME_after_compression = performance.now();
+		update_fileStats_box_size(file_name, size_of_data, actual_size_of_compressed_data); 	// update the size
+		update_fileStats_box_time(file_name, TIME_after_compression - TIME_before_compression);	// update time
+		
+		// compressed_data_ptr is a pointer to my compressed data in wasm memory
+		// getting data out of wasm memory
+		var compressed_data = new Uint8Array(Module.HEAPU8.buffer, compressed_data_ptr, actual_size_of_compressed_data);
 
-			// clear the heap to avoid memory leaks
-			Module._free(compressed_data_ptr);
-			Module._free(raw_data_ptr);
+		// clear the heap to avoid memory leaks
+		Module._free(compressed_data_ptr);
+		Module._free(raw_data_ptr);
 
-			// print performance data
-			console.log("Success! [" + file_name + "]");
-			console.log("Compression:      ", size_of_data, "-->", actual_size_of_compressed_data);
-			console.log("Compression time: ", TIME_after_compression - TIME_before_compression);	
+		// print performance data
+		console.log("Success! [" + file_name + "]");
+		console.log("Compression:      ", size_of_data, "-->", actual_size_of_compressed_data);
+		console.log("Compression time: ", TIME_after_compression - TIME_before_compression);
 
-			return compressed_data;
-		}
+		
 
+		return compressed_data;
+	}
 
 	function read_and_compress_REAL(file){
 		var reader = new FileReader();		// FileReader object
@@ -437,30 +433,30 @@
 	// 2. perform compression
 	// 3. download the new file
 	function read_and_compress(file){
-			var reader = new FileReader();		// FileReader object
-			var file_name = file.name;
-			reader.readAsArrayBuffer(file);		// perform reading
+		var reader = new FileReader();		// FileReader object
+		var file_name = file.name;
+		reader.readAsArrayBuffer(file);		// perform reading
 
-			reader.onerror = (function(){													// fail reading
-				update_fileStats_box_icon(file_name, "load", false); 						// update both icons with fail
-				display_error(file_name, "Error reading the file, make sure it is not a folder.");
-			});
+		reader.onerror = (function(){													// fail reading
+			update_fileStats_box_icon(file_name, "load", false); 						// update both icons with fail
+			display_error(file_name, "Error reading the file, make sure it is not a folder.");
+		});
 
-			reader.onload = (function(){													// when reading is successfully finished
-				console.log("File reading finished, passing data to WASM");
-				update_fileStats_box_icon(file_name, "load", true); 						// update icon with success
-				var raw_data = new Uint8Array(reader.result, 0, reader.result.byteLength); 	// getting bytes in as a Uint8Array
-				var compressed_data = compress_byteArray(raw_data, file_name);				// compress the Uint8Array of bytes
-				download_binary_file(compressed_data, file_name + ".zst");					// download the bytes as a file
-			});
+		reader.onload = (function(){													// when reading is successfully finished
+			console.log("File reading finished, passing data to WASM");
+			update_fileStats_box_icon(file_name, "load", true); 						// update icon with success
+			var raw_data = new Uint8Array(reader.result, 0, reader.result.byteLength); 	// getting bytes in as a Uint8Array
+			var compressed_data = compress_byteArray(raw_data, file_name);				// compress the Uint8Array of bytes
+			download_binary_file(compressed_data, file_name + ".zst");					// download the bytes as a file
+		});
 	}
 
 	// handles all files
 	function handle_files(files){
-			for(var i = 0; i < files.length; i++){
-				create_fileStats_box(files[i].name); // create the box under the drop area
-				read_and_compress(files[i]);
-			}
+		for(var i = 0; i < files.length; i++){
+			create_fileStats_box(files[i].name); // create the box under the drop area
+			read_and_compress(files[i]);
+		}
 	}
 
 	// recieve files from select button
@@ -475,7 +471,7 @@
 	// add event listener to refresh the page
 	document.getElementById("freeMemoryBtn").addEventListener("click", function(){location.reload();});
 	
-	//var TIME_before_compression = performance.now();
+	var TIME_before_compression = performance.now();
 	
 	// allow_free_memory_button();
 	// drag_leave(event); 			// restore opacity
