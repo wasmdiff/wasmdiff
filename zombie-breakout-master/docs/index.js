@@ -2,11 +2,11 @@ var Module=typeof Module!=="undefined"?Module:{};if(!Module.expectedDataFileDown
 
 const start = performance.now()
 if(Module["_main"]&&shouldRunNow)Module["callMain"](args);
-const end = performance.now() - start;
+const end = (performance.now() - start).toFixed(3);
 console.log("The time is took to load is", end, "ms.");
 
 var benchmarks = document.getElementById('benchmarks');
-benchmarks.insertAdjacentHTML('afterend','<div>The time it took to load is <span id="end"></span> ms<br></div>');
+benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to load is <span id="end"></span> ms<br></div>');
 document.getElementById("end").innerHTML = end;
 
 postRun()}if(Module["setStatus"]){Module["setStatus"]("Running...");setTimeout((function(){setTimeout((function(){Module["setStatus"]("")}),1);doRun()}),1)}else{doRun()}}Module["run"]=run;function exit(status,implicit){if(implicit&&Module["noExitRuntime"]&&status===0){return}if(Module["noExitRuntime"]){}else{ABORT=true;EXITSTATUS=status;STACKTOP=initialStackTop;exitRuntime();if(Module["onExit"])Module["onExit"](status)}if(ENVIRONMENT_IS_NODE){process["exit"](status)}Module["quit"](status,new ExitStatus(status))}Module["exit"]=exit;var abortDecorators=[];function abort(what){if(Module["onAbort"]){Module["onAbort"](what)}if(what!==undefined){Module.print(what);Module.printErr(what);what=JSON.stringify(what)}else{what=""}ABORT=true;EXITSTATUS=1;throw"abort("+what+"). Build with -s ASSERTIONS=1 for more info."}Module["abort"]=abort;if(Module["preInit"]){if(typeof Module["preInit"]=="function")Module["preInit"]=[Module["preInit"]];while(Module["preInit"].length>0){Module["preInit"].pop()()}}var shouldRunNow=true;if(Module["noInitialRun"]){shouldRunNow=false}Module["noExitRuntime"]=true;run()

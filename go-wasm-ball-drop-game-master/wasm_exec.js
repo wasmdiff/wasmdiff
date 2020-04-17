@@ -372,12 +372,12 @@
 				offset += 8;
 			});
 
-			const end = performance.now() - start;
+			const end = (performance.now() - start).toFixed(3);
 			
 			console.log("The time it took to instantiate the WASM is", end, "ms.");
 
 			var benchmarks = document.getElementById('benchmarks');
-			benchmarks.insertAdjacentHTML('afterend','<div>The time it took to instantiate the WASM is <span id="end"></span> ms<br></div>');
+			benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to instantiate the WASM is <span id="end"></span> ms<br></div>');
 			document.getElementById("end").innerHTML = end;
 
 			while (true) {

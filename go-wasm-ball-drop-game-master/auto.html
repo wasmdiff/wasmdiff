@@ -1,17 +1,8 @@
 <!doctype html>
 <html>
 	<head>
+    <title>Ball Drop Game (Auto)</title>
     <meta charset="utf-8">
-    <title>Ball Drop Game</title>
-
-    <br><br><br>
-
-    <div>
-      <form action="../index.html" style="position: absolute; left: 0;">
-        <input type="submit" value="Back to Home Page" id="back"/>
-      </form>
-    </div>
-
     <style>
       #canvas {
         position:fixed;
@@ -20,16 +11,22 @@
         margin-top: 100px;
         top:0;right:0;bottom:0;left:0;
       }
+      #benchmarks, #results{
+          font-size: x-large;
+          width:60%;
+          margin-left:20%;
+      }
     </style>
 	</head>
   <body>
 
     <script src="wasm_exec.js"></script>
     
-    <br><br>
+    <br>
     <div id="benchmarks">
       <!-- benchmarking added by javascript -->
-    </div>  
+    </div>
+    <HR>
 
 		<script>
 			const go = new Go();
