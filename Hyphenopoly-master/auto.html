@@ -4,11 +4,6 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <title>Hyphenopoly Example (Auto)</title>
 
-        <!-- click is false for now, program will only run once -->
-        <script>
-            var click=false;
-        </script>
-
         <style type="text/css">
             body {
                 width:60%;
@@ -25,6 +20,9 @@
                 -moz-hyphens: auto;
                 -webkit-hyphens: auto;
             }
+            #bench {
+                font-size: x-large;
+            }
         </style>
 
     </head>
@@ -36,54 +34,20 @@
             <p lang="de">Aus diesem Grund übertreffen auch die Helvetier die übrigen Gallier an Tapferkeit, weil sie sich in fast täglichen Gefechten mit den Germanen messen, wobei sie diese entweder von ihrem Gebiet fernhalten oder selbst in deren Gebiet kämpfen.</p>
         </div>
 
+        <br><HR>
+
         <div id="benchmarks" style="font-weight: bold";><br>
-            <!-- <h1>Individual Runs:</h1> -->
-            <!-- Individual runs will be inserted here -->
-        </div>  
 
-        <div id="iterations" style="font-weight: bold";>
-            <!-- <h1>10 Runs:</h1>  -->
-            <!-- Multiple runs will be inserted here -->
-        </div><br>
-
+        </div>
         <script>
-            // if run 10 times button is clicked, do this
-        var num = 0;
-           function clicked(){ 
-
-                click=true;
-                for(var num = 0; num < 3; num++){
-                    var script = document.createElement('script'); 
-                    script.src = "./Hyphenopoly_Loader.js"; 
-                    script.type = 'text/javascript';
-                    document.head.appendChild(script); // run Hyphenopoly_Loader.js
-                }
-                if(num==3){
-                        // insert into HTML
-                        // TODO: beautify the output
-                        var benchmarks = document.getElementById('iterations');
-                        benchmarks.insertAdjacentHTML('afterend','<div id=iterations>The time it took to hyphenate the paragraph after 10 runs in Latin is <span id="time_la"></span> ms on average.<br></div>');
-                        benchmarks.insertAdjacentHTML('afterend','<div id=iterations>The time it took to hyphenate the paragraph after 10 runs in English is <span id="time_en"></span> ms on average.<br></div>');
-                        benchmarks.insertAdjacentHTML('afterend','<div id=iterations>The time it took to hyphenate the paragraph after 10 runs in German is <span id="time_de"></span> ms on average.<br></div>');
-                        document.getElementById("time_la").innerHTML = time_la;
-                        document.getElementById("time_en").innerHTML = time_en;
-                        document.getElementById("time_de").innerHTML = time_de;
-                    }                
-            }
-
-            click=false;
-            // if run once button is clicked, do this
+            var click=false;
             function once(){
-                click=false;
-                var script = document.createElement('script'); 
-                script.src = "./Hyphenopoly_Loader.js"; 
+                var script = document.createElement('script');
+                script.src = "./Hyphenopoly_Loader.js";
                 script.type = 'text/javascript';
                 document.head.appendChild(script); // run Hyphenopoly_Loader.js
-
-                var benchmarks = document.getElementById('benchmarks');
-                benchmarks.insertAdjacentHTML('afterend','<br>'); // add break between runs
             }
- 
         </script>
+
     </body>
 </html>
