@@ -331,7 +331,6 @@
 
 	function decompress_byteArray(compressed_data, file_name){
 		const size_of_data = compressed_data.length; // size of my data
-		alert(size_of_data);
 		// I only have 5Mb of stack
 		// instead of passing the array to ZSTD_compress I am copying it into the heap and then pass a pointer to it
 		const compressed_data_ptr = malloc_or_die(size_of_data, file_name);

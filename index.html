@@ -2,6 +2,17 @@
 <head>
     <title>WebAssembly Benchmarking</title>
     <link rel="icon" href="others/web-assembly-icon-128px.png">
+    <style>
+        [test_only] {
+            display: inherit;
+        }
+    </style>
+    <!-- change to this stylesheet to hide all auto examples-->
+    <!--style>
+        [test_only] {
+            display: none;
+        }
+    </style-->
 </head>
 
 <body>
@@ -15,7 +26,7 @@
 </form>
 
 <form action="Hyphenopoly-master/auto.html">
-    <input type="submit" value="Hyphenopoly_auto_test_only" />
+    <input type="submit" test_only value="Hyphenopoly_auto_test_only" />
 </form>
 
 <h2>Compression:</h2>
@@ -25,7 +36,7 @@
 </form>
 
 <form action="MarcoSelvatici.github.io-master/ref/shrink/compress/auto.html">
-    <input type="submit" value="Compress_auto_test_only" />
+    <input type="submit" test_only value="Compress_auto_test_only" />
 </form>
 
 
@@ -34,7 +45,7 @@
 </form>
 
 <form action="MarcoSelvatici.github.io-master/ref/shrink/decompress/auto.html">
-    <input type="submit" value="Decompress_auto_test_only" />
+    <input type="submit" test_only value="Decompress_auto_test_only" />
 </form>
 
 <h2>Crypto:</h2>
@@ -44,7 +55,7 @@
 </form>
 
 <form action="go-iden3-crypto-wasm-master/webtest/auto.html">
-    <input type="submit" value="Poseidon Hashing_auto_test_only" />
+    <input type="submit" test_only value="Poseidon Hashing_auto_test_only" />
 </form>
 
 
@@ -53,7 +64,7 @@
 </form>
 
 <form action="wasm-bench-crypto-master-original/auto.html">
-    <input type="submit" value="SHA-256 Hashing_auto_test_only"/>
+    <input type="submit" test_only value="SHA-256 Hashing_auto_test_only"/>
 </form>
 
 <h2>Game:</h2>
@@ -63,7 +74,7 @@
 </form>
 
 <form action="zombie-breakout-master/docs/auto.html">
-    <input type="submit" value="Zombie Breakout Game_auto_test_only" />
+    <input type="submit" test_only value="Zombie Breakout Game_auto_test_only" />
 </form>
 
 <form action="go-wasm-ball-drop-game-master/index.html">
@@ -71,7 +82,7 @@
 </form>
 
 <form action="go-wasm-ball-drop-game-master/auto.html">
-    <input type="submit" value="Ball Drop Game_auto_test_only"/>
+    <input type="submit" test_only value="Ball Drop Game_auto_test_only"/>
 </form>
 
 <form action="rocket_wasm-master/html/index.html">
@@ -79,7 +90,7 @@
 </form>
 
 <form action="rocket_wasm-master/html/auto.html">
-    <input type="submit" value="Rocket Game_auto_test_only"/>
+    <input type="submit" test_only value="Rocket Game_auto_test_only"/>
 </form>
 
 <h2>JS to WASM Calls:</h2>
@@ -89,7 +100,7 @@
 </form>
 
 <form action="perf-wasm-calls-gh-pages/auto.html">
-    <input type="submit" value="JS to WASM Calls_auto_test_only"/>
+    <input type="submit" test_only value="JS to WASM Calls_auto_test_only"/>
 </form>
 
 <h2>Image Processing:</h2>
@@ -99,7 +110,7 @@
 </form>
 
 <form action="wasm-processing-test-master/auto.html">
-    <input type="submit" value="Image Processing_auto_test_only"/>
+    <input type="submit" test_only value="Image Processing_auto_test_only"/>
 </form>
 
 <h2>Graphics:</h2>
@@ -109,7 +120,7 @@
 </form>
 
 <form action="wasm-rotating-cube-master/auto.html">
-    <input type="submit" value="Rotating Cube (Auto)"/>
+    <input type="submit" test_only value="Rotating Cube_auto_test_only"/>
 </form>
 
 </body>

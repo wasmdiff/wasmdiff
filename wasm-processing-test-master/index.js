@@ -134,7 +134,7 @@ function inContextProcessingTest() {
 	
 		var benchmarks = document.getElementById('benchmarks');
 		benchmarks.insertAdjacentHTML('afterend','<div id=bench> The time it took to process the image using WASM is <span id="end"></span> ms<br></div>');
-		document.getElementById("end").innerHTML = end;
+		document.getElementById("end").innerHTML = end.toFixed(3);
 	}
 
 }
