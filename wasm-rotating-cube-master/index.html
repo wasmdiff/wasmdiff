@@ -5,9 +5,9 @@
 
     <style>
         #result, #benchmarks, #bench{
-            font-size: x-large;
+            font-size: large;
             width:60%;
-            margin-left:20%;
+            margin-left:0%;
         }
         #gocanvas {
             position:fixed;
@@ -19,14 +19,16 @@
         }
     </style>
 
-    <!-- Button to go to home page -->
-    <form action="../index.html">
-        <input type="submit" value="Back to Home Page" id="back"/>
-    </form>
+    <div>
+        <!-- Button to go to home page -->
+        <form action="../index.html">
+            <input type="submit" value="Back to Home Page" id="back"/>
+        </form>
 
-    <div id="benchmarks" style="font-weight: bold";>
-        <!-- benchmarking added by javascript -->
-    </div>  
+        <div id="benchmarks" style="font-weight: bold";>
+            <!-- benchmarking added by javascript -->
+        </div> 
+    </div>
 
     <script src="wasm_exec.js"></script>
 
