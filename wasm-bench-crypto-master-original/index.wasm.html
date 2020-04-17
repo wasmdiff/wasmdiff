@@ -6,6 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>WASM perf test</title>
 
+  <style type="text/css">
+    body {
+      width:60%;
+      margin-left:20%;
+    }
+    p {
+      text-align: justify;
+      margin: 0 2em 0 0;
+    }
+    #bench10 {
+      font-size: x-large;
+    }
+    #bench100 {
+      font-size: x-large;
+    }
+    #bench1000 {
+      font-size: x-large;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -19,21 +39,25 @@
 
   <h1>SHA-256 Program</h1>
   <h2>This program hashes a 100 byte, 1 kb, and 1mb string a specified number of times.</h2>
+  <HR>
 
   <div id="bench10">
     <h2>10 Runs:</h2>
     <!-- benchmarking added by javascript for one run-->
   </div>
+  <HR>
 
   <div id="bench100">
     <h2>100 Runs:</h2>
     <!-- benchmarking added by javascript for one run-->
   </div>
+  <HR>
 
   <div id="bench1000">
     <h2>1000 Runs (This will take 10-15 seconds):</h2>
     <!-- benchmarking added by javascript for one run-->
   </div>
+  <HR>
 
   <br>
 
