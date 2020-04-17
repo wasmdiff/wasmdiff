@@ -16,6 +16,9 @@
 	#results, #results_a {
 		font-size: x-large;
 	}
+	#butt{
+		display:inline-block;
+	}
 </style>
 
 <body>
@@ -42,12 +45,14 @@
 		<!-- benchmarking added by javascript for 1000 runs-->
 	</div><HR>
 
-	<button onClick="benchmark(10);">Hash 10 Times</button><br><br>
-	<button onClick="benchmark(100);">Hash 100 Times</button><br><br>
-	<button onClick="benchmark(1000);">Hash 1000 Times</button><br><br>
-	<form action="../../index.html" id="back">
-		<input type="submit" value="Back to Home Page" id="back"/>
-	</form><br>
+	<div>
+		<button onClick="benchmark(10);" id="butt">Hash 10 Times</button>
+		<button onClick="benchmark(100);" id="butt">Hash 100 Times</button>
+		<button onClick="benchmark(1000);"id="butt">Hash 1000 Times</button>
+		<form action="../../index.html" id="butt">
+			<input type="submit" value="Back to Home Page" id="back"/>
+		</form><br>
+	</div>
 
 	<script>
 		const go = new Go();
