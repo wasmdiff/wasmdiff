@@ -337,3 +337,14 @@ footer{
 #freeMemoryBtn:disabled img{
     opacity: 0.3;
 }
+
+#backBtn{
+    background-color: var(--buttons-color);
+    font-size: 0.75em;
+    border: 0px;
+    width: 235px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+}
