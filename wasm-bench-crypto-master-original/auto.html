@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WASM perf test (Auto)</title>
+  <style type="text/css">
+    body {
+      width:60%;
+      margin-left:20%;
+    }
+    p {
+      text-align: justify;
+      margin: 0 2em 0 0;
+    }
+    #results {
+      font-size: x-large;
+    }
+  </style>
+
+</head>
+<body onload="setTimeout(hundred, 100)">
+
+  <script>
+    var run = false;
+    var times = 0;
+  </script>
+
+  <script defer src="libnettle.browser.js"></script>
+  <script defer src="sha256.browser.wasm.js"></script>
+
+  <h1>SHA-256 Program</h1>
+  <h2>This program hashes a 100 byte, 1 kb, and 1mb string a specified number of times.</h2>
+  <HR>
+  <div id="bench100">
+    <h2>Automatic 100 Runs:</h2>
+    <!-- benchmarking added by javascript for one run-->
+  </div>
+
+  <script>
+    function ten(){
+      run = true;
+      times = 10;
+      onRuntimeInitialized();
+    }
+
+    function hundred(){
+      run = true;
+      times = 100;
+      onRuntimeInitialized();
+    }
+
+    function thousand(){
+      run = true;
+      times = 1000;
+      onRuntimeInitialized();
+    }
+
+    run = false;
+  </script>
+
+</body>
+</html>

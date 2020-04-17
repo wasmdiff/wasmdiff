@@ -19,7 +19,7 @@
 		}
 	</style>
 </head>
-<body onload="benchmark(1000)">
+<body onload="setTimeout(benchmark,500,1000)">
 	<script src="wasm_exec.js"></script>
 	<script src="iden3js-bundle.js"></script>
 
@@ -41,9 +41,10 @@
 		WebAssembly.instantiateStreaming(fetch('go-iden3-crypto.wasm'), go.importObject).then(function(dat) {
 		    go.run(dat.instance);
 		});
+		/*
 		window.onload = function () {
 			document.getElementById('results_b').click();
-		};
+		};*/
 	</script>
 
 	<script src="index.js"></script>
