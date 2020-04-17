@@ -61,11 +61,11 @@ function onRuntimeInitialized() {
 
       var benchmarks = document.getElementById('bench10');
       benchmarks.insertAdjacentHTML('afterend','<br>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 mb byte string 1 time on average is: <span id="t3_ten_div"></span> ms.<br></div>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 mb byte string 10 times is: <span id="t3_ten"></span> ms<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 MB string 1 time on average is: <span id="t3_ten_div"></span> ms.<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 MB string 10 times is: <span id="t3_ten"></span> ms<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<br>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 kb string 1 time on average is: <span id="t2_ten_div"></span> ms.<br></div>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 kb string 10 times is: <span id="t2_ten"></span> ms<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 KB string 1 time on average is: <span id="t2_ten_div"></span> ms.<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 KB string 10 times is: <span id="t2_ten"></span> ms<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<br>');
       benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 100 byte string 1 time on average is: <span id="t1_ten_div"></span> ms.<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 100 byte string 10 times is: <span id="t1_ten"></span> ms<br></div>');
@@ -86,11 +86,11 @@ function onRuntimeInitialized() {
 
       var benchmarks = document.getElementById('bench100');
       benchmarks.insertAdjacentHTML('afterend','<br>');
-      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash the 1 mb byte string 1 time on average is: <span id="t3_hun_div"></span> ms.<br></div>');
-      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash a 1 mb byte string 100 times is: <span id="t3_hun"></span> ms<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash the 1 MB string 1 time on average is: <span id="t3_hun_div"></span> ms.<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash a 1 MB string 100 times is: <span id="t3_hun"></span> ms<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<br>');
-      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash the 1 kb string 1 time on average is: <span id="t2_hun_div"></span> ms.<br></div>');
-      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash a 1 kb string 100 times is: <span id="t2_hun"></span> ms<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash the 1 KB string 1 time on average is: <span id="t2_hun_div"></span> ms.<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash a 1 KB string 100 times is: <span id="t2_hun"></span> ms<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<br>');
       benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash the 100 byte string 1 time on average is: <span id="t1_hun_div"></span> ms.<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<div id="results">The time it took to hash a 100 byte string 100 times is: <span id="t1_hun"></span> ms<br></div>');
@@ -112,11 +112,11 @@ function onRuntimeInitialized() {
 
       var benchmarks = document.getElementById('bench1000');
       benchmarks.insertAdjacentHTML('afterend','<br>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 mb byte string 1 time on average is: <span id="t3_thou_div"></span> ms.<br></div>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 mb byte string 1000 times is: <span id="t3_thou"></span> ms<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 MB string 1 time on average is: <span id="t3_thou_div"></span> ms.<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 MB string 1000 times is: <span id="t3_thou"></span> ms<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<br>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 kb string 1 time on average is: <span id="t2_thou_div"></span> ms.<br></div>');
-      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 kb string 1000 times is: <span id="t2_thou"></span> ms<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 1 KB string 1 time on average is: <span id="t2_thou_div"></span> ms.<br></div>');
+      benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 1 KB string 1000 times is: <span id="t2_thou"></span> ms<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<br>');
       benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash the 100 byte string 1 time on average is: <span id="t1_thou_div"></span> ms.<br></div>');
       benchmarks.insertAdjacentHTML('afterend','<div>The time it took to hash a 100 byte string 1000 times is: <span id="t1_thou"></span> ms<br></div>');
