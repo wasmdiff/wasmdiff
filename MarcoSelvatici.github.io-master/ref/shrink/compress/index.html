@@ -80,8 +80,8 @@
 
 		<div id="mainPart">
 
-			<form action="../../../../index.html" style="position: absolute; left: 0;">
-				<input type="submit" value="Back to Home Page" id="back"/>
+			<form action="../../../../index.html" id="back" style="position: absolute; left: 0;">
+				<input type="submit" value="Back to Home Page" id="backBtn"/>
 			</form>
 
 			<div id="fileArea">
@@ -215,7 +215,7 @@
 	}
 
 	// make the button clickable
-	function allow_free_memory_button(){
+	function allow_free_memory_d(){
 		var btn = document.getElementById("freeMemoryBtn");
 		btn.disabled = false;
 		btn.title = "Free memory used by this app";
