@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>WASM Processing test (Auto)</title>
+	<script>
+		var iter = false;
+		var click = false;
+	</script>
+	<script src="./index.js"></script>
+	<style type="text/css">
+		[two-col] {
+			display: grid;
+			grid-gap: 0.5rem;
+			grid-template-columns: 510px 510px 1fr;
+		}
+		.log {
+			grid-row: span 2;
+		}
+		.canvas {
+			width: 500px;
+			height: 300px;
+			border: #888 solid 1px;
+			padding: 1px;
+		}
+		#bench{
+			font-size: x-large;
+		}
+	</style>
+
+</head>
+<body onload="setTimeout(iterate, 500)">
+	<h1>
+		This program compares image processing performance using Javascript and WebAssembly.
+	</h1>
+	<div two-col>
+		<div>JS</div>
+		<div>WASM</div>
+		<div class="log"></div>
+		<canvas class="canvas c1" width="500" height="300"></canvas>
+		<canvas class="canvas c2" width="500" height="300"></canvas>
+	</div>
+	<div>
+
+		<script>
+			// if run 10 times button is clicked, do this
+			function iterate(){ 
+				iter=true;
+				click=false;
+				runWasm();
+				var benchmarks = document.getElementById('iterations');
+				benchmarks.insertAdjacentHTML('afterend','<br>'); // add break between runs
+			}
+			function once(){
+				iter=false;
+				click=true;
+				runWasm();
+				var benchmarks = document.getElementById('benchmarks');
+				benchmarks.insertAdjacentHTML('afterend','<br>'); // add break between runs
+			}
+		</script>
+
+		<div id="iterations">
+			<h2>10 Runs:</h2>
+			<!-- benchmarking added by javascript -->
+		</div>  
+
+	</div>
+
+</body>
+</html>

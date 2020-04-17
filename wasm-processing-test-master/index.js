@@ -103,8 +103,8 @@ function inContextProcessingTest() {
 		var benchmarks = document.getElementById('iterations');
 		benchmarks.insertAdjacentHTML('afterend','<div id=bench> The time it took to process one image on average using WASM is <span id="end_it_10"></span> ms<br></div>');
 		benchmarks.insertAdjacentHTML('afterend','<div id=bench> The time it took to process the image 10 times using WASM is <span id="end_it"></span> ms<br></div>');
-		document.getElementById("end_it").innerHTML = end;
-		document.getElementById("end_it_10").innerHTML = end/10;
+		document.getElementById("end_it").innerHTML = end.toFixed(3);
+		document.getElementById("end_it_10").innerHTML = (end/10).toFixed(3);
 		
 	}else if(click == true){
 		const start = performance.now();
