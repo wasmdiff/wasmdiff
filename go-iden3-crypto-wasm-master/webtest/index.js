@@ -53,26 +53,26 @@ function benchmark(niter) {
 	if(niter == 10){
 		var benchmarks = document.getElementById('ten');
 		benchmarks.insertAdjacentHTML('afterend','<br>');
-		benchmarks.insertAdjacentHTML('afterend','<div>WASM Poseidon took: <span id="bench_div_10"></span> ms on average for 1 run<br></div>');
-		benchmarks.insertAdjacentHTML('afterend','<div>WASM Poseidon took: <span id="bench_10"></span> ms for 10 iterations<br></div>');
-		document.getElementById("bench_10").innerHTML = bench;
-		document.getElementById("bench_div_10").innerHTML = bench/10;
+		benchmarks.insertAdjacentHTML('afterend','<div id="results">Average running time: <span id="bench_div_10"></span> ms<br></div>');
+		benchmarks.insertAdjacentHTML('afterend','<div id="results_a">WASM Poseidon took: <span id="bench_10"></span> ms for 10 iterations<br></div>');
+		document.getElementById("bench_10").innerHTML = bench.toFixed(3);
+		document.getElementById("bench_div_10").innerHTML = (bench/10).toFixed(3);
 
 	}else if(niter == 100){
 		var benchmarks = document.getElementById('hundred');
 		benchmarks.insertAdjacentHTML('afterend','<br>');
-		benchmarks.insertAdjacentHTML('afterend','<div>WASM Poseidon took: <span id="bench_div_100"></span> ms on average for 1 run<br></div>');
-		benchmarks.insertAdjacentHTML('afterend','<div>WASM Poseidon took: <span id="bench_100"></span> ms for 100 iterations<br></div>');
-		document.getElementById("bench_100").innerHTML = bench;
-		document.getElementById("bench_div_100").innerHTML = bench/100;
+		benchmarks.insertAdjacentHTML('afterend','<div id="results">Average running time: <span id="bench_div_100"></span> ms<br></div>');
+		benchmarks.insertAdjacentHTML('afterend','<div id="results_a">WASM Poseidon took: <span id="bench_100"></span> ms for 100 iterations<br></div>');
+		document.getElementById("bench_100").innerHTML = bench.toFixed(3);
+		document.getElementById("bench_div_100").innerHTML = (bench/100).toFixed(3);
 	}
 	else if(niter == 1000){
 		var benchmarks = document.getElementById('thousand');
 		benchmarks.insertAdjacentHTML('afterend','<br>');
-		benchmarks.insertAdjacentHTML('afterend','<div>WASM Poseidon took: <span id="bench_div_1000"></span> ms on average for 1 run<br></div>');
-		benchmarks.insertAdjacentHTML('afterend','<div>WASM Poseidon took: <span id="bench_1000"></span> ms for 1000 iterations<br></div>');
-		document.getElementById("bench_1000").innerHTML = bench;
-		document.getElementById("bench_div_1000").innerHTML = bench/1000;
+		benchmarks.insertAdjacentHTML('afterend','<div id="results">Average running time: <span id="bench_div_1000"></span> ms<br></div>');
+		benchmarks.insertAdjacentHTML('afterend','<div id="results_a">WASM Poseidon took: <span id="bench_1000"></span> ms for 1000 iterations<br></div>');
+		document.getElementById("bench_1000").innerHTML = bench.toFixed(3);
+		document.getElementById("bench_div_1000").innerHTML = (bench/1000).toFixed(3);
 	}
 }
 

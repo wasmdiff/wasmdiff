@@ -1,0 +1,50 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>go-iden3-crypto wasm experiments</title>
+	<style type="text/css">
+		body {
+			width:60%;
+			margin-left:20%;
+		}
+		p {
+			text-align: justify;
+			margin: 0 2em 0 0;
+		}
+		#results {
+			font-size: x-large;
+		}
+		#results_a {
+			visibility: hidden;
+		}
+	</style>
+</head>
+<body onload="benchmark(1000)">
+	<script src="wasm_exec.js"></script>
+	<script src="iden3js-bundle.js"></script>
+
+
+	<h1>This program hashes a string a specified number of times using Poseidon.</h1>
+
+	<!-- buttons for each number of runs-->
+	<!-- calls benchmark function in index.js
+	<button onClick="benchmark(10);">Hash 10 Times</button><br><br>
+	<button onClick="benchmark(100);">Hash 100 Times</button><br><br>
+	<button onClick="benchmark(1000);">Hash 1000 Times</button><br><br>-->
+
+	<div id="thousand">
+		<h2>Automatic run 1000 times:</h2>
+		<!-- benchmarking added by javascript for 1000 runs-->
+	</div>
+
+	<script>
+		const go = new Go();
+		WebAssembly.instantiateStreaming(fetch('go-iden3-crypto.wasm'), go.importObject).then(function(dat) {
+		    go.run(dat.instance);
+		});
+	</script>
+
+	<script src="index.js"></script>
+
+</body>
+</html>
