@@ -471,7 +471,7 @@ WebAssembly.instantiateStreaming(fetch("bundle.wasm"), go.importObject).then((re
     go.run(result.instance);
 });
 
-const end = performance.now()-start;
+const end = (performance.now()-start).toFixed(3);
 console.log(end, "ms");
 
 var benchmarks = document.getElementById('benchmarks');

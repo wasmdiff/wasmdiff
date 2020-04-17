@@ -1,21 +1,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Rotating Cube</title>
-
-    <!-- Button to go to home page -->
-    <form action="../index.html">
-        <input type="submit" value="Back to Home Page" id="back"/>
-    </form>
-
-    <div id="benchmarks" style="font-weight: bold";>
-        <!-- benchmarking added by javascript -->
-    </div>  
-
-    <script src="wasm_exec.js"></script>
-
+    <title>Rotating Cube (Auto)</title>
     <style>
-        body,pre { margin:0;padding:0; }
+        [result] {
+            font-size: x-large;
+            width:60%;
+            margin-left:20%;
+        }
         #gocanvas {
             position:fixed;
             opacity: .5;
@@ -26,9 +18,15 @@
         }
     </style>
 
-
 </head>
 <body>
+    <br>
+    <div result id="benchmarks">
+        <!-- benchmarking added by javascript -->
+    </div>
+    <HR>
     <canvas id="gocanvas">Your browser doesn't appear to support the canvas tag.</canvas>
+
+    <script src="wasm_exec.js"></script>
 </body>
 </html>
