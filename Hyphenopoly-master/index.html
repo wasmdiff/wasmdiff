@@ -28,6 +28,9 @@
             #bench {
                 font-size: x-large;
             }
+            #butt{
+		        display:inline-block;
+	        }
         </style>
 
     </head>
@@ -49,17 +52,14 @@
         <div id="iterations" style="font-weight: bold";>
             <!-- <h1>10 Runs:</h1>  -->
             <!-- Multiple runs will be inserted here -->
-        </div><br>
+        </div>
 
         <div>
             <!-- Button to run once -->
-            <button onclick="once()" id="once">Run</button><br><br>
-            <!-- Button to run 10 times <button onclick="clicked()" id="iterate">Run 10 Times</button><br><br> -->
-
-            <!-- Button to go to home page -->
-            <form action="../index.html">
-                <input type="submit" value="Back to Home Page" id="backBtn"/>
-            </form>
+            <button onclick="once();" id="butt">Run</button>
+            <form action="../index.html" id="butt">
+                <input type="submit" value="Back to Home Page" id="backBtn"></input>
+            </form><br>
         </div>
 
         <script>

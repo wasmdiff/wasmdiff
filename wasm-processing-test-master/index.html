@@ -26,6 +26,9 @@
 		#bench{
 			font-size: x-large;
 		}
+		#butt{
+		        display:inline-block;
+	    }
 	</style>
 
 </head>
@@ -61,17 +64,13 @@
 		</script>
 		<div><br>
 			<!-- Button to run 10 times -->
-			<button onclick="once()" id="once">Run Once</button><br><br>
-		</div>
-
-		<div>
+			<button onclick="once()" id="once">Run Once</button>					
 			<!-- Button to run 10 times -->
-			<button onclick="iterate()" id="iterate">Run 10 Times</button><br><br>
+			<button onclick="iterate()" id="iterate">Run 10 Times</button>
+			<form action="../index.html" id="butt">
+				<input type="submit" value="Back to Home Page" id="back"/>
+			</form><br>
 		</div>
-
-		<form action="../index.html" style="position: absolute; left: 0;">
-			<input type="submit" value="Back to Home Page" id="back"/>
-		</form><br><br><HR>
 
 		<div id="benchmarks">
 			<h2>One Run:</h2>
