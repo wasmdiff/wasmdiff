@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Zombie breakout</title>
+
+    <br><br>
     <style type="text/css">
       html, body {
         margin: 0;
@@ -30,6 +32,11 @@
       .game[width] + .loading {
         display: none;
       }
+      #benchmarks, #results{
+        font-size: x-large;
+        width:60%;
+        margin-left:20%;
+      }
     </style>
 
       <form action="../../index.html" style="position: absolute; left: 0;">
@@ -44,6 +51,7 @@
 
   </head>
   <body>
+    <HR>
     <div class="emscripten">
       <canvas class="game portrait" oncontextmenu="event.preventDefault()"></canvas>
       <div class="loading">Loading...</div>
