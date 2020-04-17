@@ -2,37 +2,41 @@
 <head>
     <link href="superstylin.css" rel="stylesheet" media="all" type="text/css">
     <title>JS to WASM Calls (Auto)</title>
+    <style>
+        [notshown] {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
-
-    <form action="../index.html" style="position: absolute; left: 0;">
-		<input type="submit" value="Back to Home Page" id="back"/>
-	</form><br><br>
-
-    <h1>Call me maybe?</h1>
     <p>
-        <label for="select">Number of iterations:</label>
-        <select class="u-full-width" id="select">
-            <option value="1000000">1 million</option>
+        <label for="select">Number of iterations: 1 million</label>
+        <select notshown class="u-full-width" id="select">
+            <option selected value="1000000">1 million</option>
             <option value="10000000">10 millions</option>
-            <option selected value="100000000">100 millions</option>
+            <option value="100000000">100 millions</option>
             <option value="200000000">200 millions</option>
         </select>
     </p>
-    <p>
+    <p notshown>
         <label for="showDescription">
             <input id="showDescription" type="checkbox" checked>
             &nbsp;Show descriptions
         </label>
     </p>
-    <p>
+    <p notshown>
         <input id="start" class="button-primary" type="button" disabled value="Run" />
         <input id="clean" type="button" disabled value="Clean" />
     </p>
-    <p id="status"></p>
+    <p notshown id="status"></p>
     <table id="results"></table>
     <script src="./non-inlined-function.js"></script>
-    <script src="./main.js"></script>
+    <script src="./main_auto.js"></script>
+    <script>
+        window.onload = function (){
+            ;
+        }
+    </script>
 </body>
 </html>
