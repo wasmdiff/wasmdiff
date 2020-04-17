@@ -515,6 +515,7 @@
 						update_fileStats_box_icon(file_name, "load", true); 			// update icon with success
 						allow_free_memory_button();
 						var compressed_data = compress_byteArray(raw_data, file_name);	// compress the Uint8Array of bytes
+						//download_binary_file(compressed_data, file_name + ".zst");		// download the bytes as a file
 					}
 				}
 			}

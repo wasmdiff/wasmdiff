@@ -227,10 +227,7 @@
 	function update_fileStats_box_time(file_name, time){
 		var timeLabelId = "timeLabel_" + file_name;
 		var timeLabel = document.getElementById(timeLabelId);
-		if(time > 1000)
-			timeLabel.innerHTML = 'Time: ' + (time/1000).toFixed(3) + " s";
-		else
-			timeLabel.innerHTML = 'Time: ' + time.toFixed(0) + " ms";
+		timeLabel.innerHTML = 'Time: ' + time.toFixed(3) + " ms";
 	}
 	
 	function update_fileStats_box_size(file_name, original_size, final_size){
@@ -334,7 +331,7 @@
 
 	function decompress_byteArray(compressed_data, file_name){
 		const size_of_data = compressed_data.length; // size of my data
-
+		alert(size_of_data);
 		// I only have 5Mb of stack
 		// instead of passing the array to ZSTD_compress I am copying it into the heap and then pass a pointer to it
 		const compressed_data_ptr = malloc_or_die(size_of_data, file_name);

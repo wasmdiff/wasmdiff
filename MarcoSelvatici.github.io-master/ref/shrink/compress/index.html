@@ -248,10 +248,7 @@
 	function update_fileStats_box_time(file_name, time){
 		var timeLabelId = "timeLabel_" + file_name;
 		var timeLabel = document.getElementById(timeLabelId);
-		if(time > 1000)
-			timeLabel.innerHTML = 'Time: ' + (time/1000).toFixed(3) + " s";
-		else
-			timeLabel.innerHTML = 'Time: ' + time.toFixed(3) + " ms";
+		timeLabel.innerHTML = 'Time: ' + time.toFixed(3) + " ms";
 	}
 	
 	function update_fileStats_box_size(file_name, original_size, final_size){
