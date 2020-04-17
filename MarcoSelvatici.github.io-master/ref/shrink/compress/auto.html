@@ -243,10 +243,7 @@
 	function update_fileStats_box_time(file_name, time){
 		var timeLabelId = "timeLabel_" + file_name;
 		var timeLabel = document.getElementById(timeLabelId);
-		if(time > 1000)
-			timeLabel.innerHTML = 'Time: ' + (time/1000).toFixed(3) + " s";
-		else
-			timeLabel.innerHTML = 'Time: ' + time.toFixed(0) + " ms";
+		timeLabel.innerHTML = 'Time: ' + time.toFixed(3) + " ms";
 	}
 	
 	function update_fileStats_box_size(file_name, original_size, final_size){
@@ -473,23 +470,25 @@
 	document.getElementById("freeMemoryBtn").addEventListener("click", function(){location.reload();});
 
 	// Self-written auto compress function
-	// Since there is no way to upload any file from user's system without clicking, let's just compress a
-	// hardcoded string
+	// Since there is no way to upload any file from user's system without clicking,
+	// let's just compress a hardcoded string
 	function auto_compress(){
 		var file_name = "test.txt";
 		var file_content = "123456";
 		var buffer = new ArrayBuffer(file_content.length);
-		var raw_data = new Uint8Array(buffer); 										// getting bytes in as a Uint8Array
+		var raw_data = new Uint8Array(buffer); 									// getting bytes in as a Uint8Array
 		var strs = file_content.split("");
 		for(var i = 0 ; i < strs.length; i++){
 			raw_data[i] = strs[i].charCodeAt();
 		}
-		create_fileStats_box(file_name); // create the box under the drop area
-		update_fileStats_box_icon(file_name, "load", true); 						// update icon with success
+		create_fileStats_box(file_name); 										// create the box under the drop area
+		update_fileStats_box_icon(file_name, "load", true); 					// update icon with success
 		allow_free_memory_button();
-		var compressed_data = compress_byteArray(raw_data, file_name);				// compress the Uint8Array of bytes
+		var compressed_data = compress_byteArray(raw_data, file_name);			// compress the Uint8Array of bytes
 	}
 
+	// auto_compress's compress-from-file version
+	// use ajax to read server-hosted file
 	function auto_compress_from_file() {
 		var file_name = "jquery-3.5.0.min.js";
 		var fn = new XMLHttpRequest();
@@ -507,15 +506,15 @@
 					{
 						var file_content = fn.responseText;
 						var buffer = new ArrayBuffer(file_content.length);
-						var raw_data = new Uint8Array(buffer); 										// getting bytes in as a Uint8Array
+						var raw_data = new Uint8Array(buffer); 							// getting bytes in as a Uint8Array
 						var strs = file_content.split("");
 						for(var i = 0 ; i < strs.length; i++){
 							raw_data[i] = strs[i].charCodeAt();
 						}
-						create_fileStats_box(file_name); // create the box under the drop area
-						update_fileStats_box_icon(file_name, "load", true); 						// update icon with success
+						create_fileStats_box(file_name); 								// create the box under the drop area
+						update_fileStats_box_icon(file_name, "load", true); 			// update icon with success
 						allow_free_memory_button();
-						var compressed_data = compress_byteArray(raw_data, file_name);				// compress the Uint8Array of bytes
+						var compressed_data = compress_byteArray(raw_data, file_name);	// compress the Uint8Array of bytes
 					}
 				}
 			}
