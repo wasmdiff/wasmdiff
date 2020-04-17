@@ -8,7 +8,7 @@
 
   <style type="text/css">
     body {
-      width:60%;
+      width:70%;
       margin-left:20%;
     }
     p {
@@ -24,6 +24,10 @@
     #bench1000 {
       font-size: x-large;
     }
+
+    #butt{
+		  display:inline-block;
+	  }
   </style>
 
 </head>
@@ -61,16 +65,14 @@
 
   <br>
 
-  <!-- Button to run 10 times -->
-  <button onclick="ten()" id="t">Run 10 Times</button><br><br>
-  <!-- Button to run 100 times -->
-  <button onclick="hundred()" id="h">Run 100 Times</button><br><br>
-   <!-- Button to run 1000 times -->
-  <button onclick="thousand()" id="t">Run 1000 Times</button><br><br>
-
-  <form action="../index.html" style="position: absolute; left: 0;">
-    <input type="submit" value="Back to Home Page" id="back"/>
-  </form>
+  <div>
+		<button onClick="ten();" id="butt">Hash 10 Times</button>
+		<button onClick="hundred();" id="butt">Hash 100 Times</button>
+		<button onClick="thousand();"id="butt">Hash 1000 Times</button>
+		<form action="../index.html" id="butt">
+			<input type="submit" value="Back to Home Page" id="back"/>
+		</form><br>
+	</div>
 
   <script>
     function ten(){
