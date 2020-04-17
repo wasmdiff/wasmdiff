@@ -80,8 +80,8 @@
 
 		<div id="mainPart">
 
-			<form action="../../../../index.html" id="back" style="position: absolute; left: 0;">
-				<input type="submit" value="Back to Home Page" id="backBtn"/>
+			<form action="../../../../index.html" style="position: absolute; left: 0;">
+				<input type="submit" value="Back to Home Page" id="back"/>
 			</form>
 
 			<div id="fileArea">
@@ -215,7 +215,7 @@
 	}
 
 	// make the button clickable
-	function allow_free_memory_d(){
+	function allow_free_memory_button(){
 		var btn = document.getElementById("freeMemoryBtn");
 		btn.disabled = false;
 		btn.title = "Free memory used by this app";
@@ -248,7 +248,10 @@
 	function update_fileStats_box_time(file_name, time){
 		var timeLabelId = "timeLabel_" + file_name;
 		var timeLabel = document.getElementById(timeLabelId);
-		timeLabel.innerHTML = 'Time: ' + time.toFixed(3) + " ms";
+		if(time > 1000)
+			timeLabel.innerHTML = 'Time: ' + (time/1000).toFixed(3) + " s";
+		else
+			timeLabel.innerHTML = 'Time: ' + time.toFixed(0) + " ms";
 	}
 	
 	function update_fileStats_box_size(file_name, original_size, final_size){
