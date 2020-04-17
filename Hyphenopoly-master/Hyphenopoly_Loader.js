@@ -347,7 +347,7 @@ var Hyphenopoly = {
                     var benchmarks = document.getElementById('benchmarks');
                     benchmarks.insertAdjacentHTML('afterend','<div id=bench>The time it took to hyphenate the paragraph in <span id="language"></span> is <span id="end"></span>ms<br></div>');
                     document.getElementById("language").innerHTML = language;
-                    document.getElementById("end").innerHTML = end;
+                    document.getElementById("end").innerHTML = end.toFixed(3);
                 }
 
     }
