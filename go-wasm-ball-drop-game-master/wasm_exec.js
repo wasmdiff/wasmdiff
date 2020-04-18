@@ -6,9 +6,6 @@
 	// Map web browser API and Node.js API to a single common API (preferring web standards over Node.js API).
 	const isNodeJS = typeof process !== "undefined";
 	if (isNodeJS) {
-
-		console.log("Recognizing NodeJS as server");
-
 		global.require = require;
 		global.fs = require("fs");
 
@@ -37,8 +34,6 @@
 		} else {
 			throw new Error("cannot export Go (neither window nor self is defined)");
 		}
-
-		console.log("We do not believe that Node.js is the server");
 
 		let outputBuf = "";
 		global.fs = {
