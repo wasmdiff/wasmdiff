@@ -1,127 +1,134 @@
 <html>
 <head>
     <title>WebAssembly Benchmarking</title>
-    <link rel="icon" href="others/web-assembly-icon-128px.png">
-    <style>
-        [test_only] {
-            display: inherit;
-        }
-    </style>
-    <!-- change to this stylesheet to hide all auto examples-->
-    <!--style>
-        [test_only] {
-            display: none;
-        }
-    </style-->
+    <link rel="icon" href="homepage_src/web-assembly-icon-128px.png">
+    <link rel="stylesheet" type="text/css" href="homepage_src/style.css">
 </head>
 
 <body>
-<h1>CSE 700 Spring 2020</h1>
-<h1>WebAssembly Benchmarking</h1>
+<div class="header">
+    <div class="container">
+        <div class="item" align="right">
+            <img src="homepage_src/web-assembly-icon-512px.png" width="70" height="70">
+        </div>
+        <div class="item" align="left" style="font-size: 40px">WASMDIFF</div>
+    </div>
+</div>
 
-<h2>Grammar:</h2>
+<HR width="920px" color=#6666FF SIZE=2>
+<br>
 
-<form action="Hyphenopoly-master/index.html">
-    <input type="submit" value="Hyphenopoly" />
-</form>
-
-<form action="Hyphenopoly-master/auto.html">
-    <input type="submit" test_only value="Hyphenopoly_auto_test_only" />
-</form>
-
-<h2>Compression:</h2>
-
-<form action="MarcoSelvatici.github.io-master/ref/shrink/compress/index.html">
-    <input type="submit" value="Compress" />
-</form>
-
-<form action="MarcoSelvatici.github.io-master/ref/shrink/compress/auto.html">
-    <input type="submit" test_only value="Compress_auto_test_only" />
-</form>
-
-
-<form action="MarcoSelvatici.github.io-master/ref/shrink/decompress/index.html">
-    <input type="submit" value="Decompress" />
-</form>
-
-<form action="MarcoSelvatici.github.io-master/ref/shrink/decompress/auto.html">
-    <input type="submit" test_only value="Decompress_auto_test_only" />
-</form>
-
-<h2>Crypto:</h2>
-
-<form action="go-iden3-crypto-wasm-master/webtest/index.html">
-    <input type="submit" value="Poseidon Hashing" />
-</form>
-
-<form action="go-iden3-crypto-wasm-master/webtest/auto.html">
-    <input type="submit" test_only value="Poseidon Hashing_auto_test_only" />
-</form>
-
-
-<form action="wasm-bench-crypto-master-original/index.wasm.html">
-    <input type="submit" value="SHA-256 Hashing"/>
-</form>
-
-<form action="wasm-bench-crypto-master-original/auto.html">
-    <input type="submit" test_only value="SHA-256 Hashing_auto_test_only"/>
-</form>
-
-<h2>Game:</h2>
-
-<form action="zombie-breakout-master/docs/index.html">
-    <input type="submit" value="Zombie Breakout Game" />
-</form>
-
-<form action="zombie-breakout-master/docs/auto.html">
-    <input type="submit" test_only value="Zombie Breakout Game_auto_test_only" />
-</form>
-
-<form action="go-wasm-ball-drop-game-master/index.html">
-    <input type="submit" value="Ball Drop Game"/>
-</form>
-
-<form action="go-wasm-ball-drop-game-master/auto.html">
-    <input type="submit" test_only value="Ball Drop Game_auto_test_only"/>
-</form>
-
-<form action="rocket_wasm-master/html/index.html">
-    <input type="submit" value="Rocket Game"/>
-</form>
-
-<form action="rocket_wasm-master/html/auto.html">
-    <input type="submit" test_only value="Rocket Game_auto_test_only"/>
-</form>
-
-<h2>JS to WASM Calls:</h2>
-
-<form action="perf-wasm-calls-gh-pages/index.html">
-    <input type="submit" value="JS to WASM Calls"/>
-</form>
-
-<form action="perf-wasm-calls-gh-pages/auto.html">
-    <input type="submit" test_only value="JS to WASM Calls_auto_test_only"/>
-</form>
-
-<h2>Image Processing:</h2>
-
-<form action="wasm-processing-test-master/index.html">
-    <input type="submit" value="Image Processing"/>
-</form>
-
-<form action="wasm-processing-test-master/auto.html">
-    <input type="submit" test_only value="Image Processing_auto_test_only"/>
-</form>
-
-<h2>Graphics:</h2>
-
-<form action="wasm-rotating-cube-master/index.html">
-    <input type="submit" value="Rotating Cube"/>
-</form>
-
-<form action="wasm-rotating-cube-master/auto.html">
-    <input type="submit" test_only value="Rotating Cube_auto_test_only"/>
-</form>
+<table align="center" class="imagetable">
+    <tr>
+        <th>Compression</th>
+        <td class="type1">
+            <form action="Hyphenopoly-master/index.html">
+                <input type="submit" value="Hyphenopoly" class="button"/>
+            </form>
+            <form action="Hyphenopoly-master/auto.html">
+                <input type="submit" test_only value="Hyphenopoly_auto_test_only"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <th>Grammar</th>
+        <td class="type1">
+            <form action="MarcoSelvatici.github.io-master/ref/shrink/compress/index.html">
+                <input type="submit" value="Compress" class="button"/>
+            </form>
+            <form action="MarcoSelvatici.github.io-master/ref/shrink/compress/auto.html">
+                <input type="submit" test_only value="Compress_auto_test_only" />
+            </form>
+        </td>
+        <td class="type2">
+            <form action="MarcoSelvatici.github.io-master/ref/shrink/decompress/index.html">
+                <input type="submit" value="Decompress" class="button"/>
+            </form>
+            <form action="MarcoSelvatici.github.io-master/ref/shrink/decompress/auto.html">
+                <input type="submit" test_only value="Decompress_auto_test_only" />
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <th>Crypto</th>
+        <td class="type1">
+            <form action="go-iden3-crypto-wasm-master/webtest/index.html">
+                <input type="submit" value="Poseidon Hashing" class="button"/>
+            </form>
+            <form action="go-iden3-crypto-wasm-master/webtest/auto.html">
+                <input type="submit" test_only value="Poseidon Hashing_auto_test_only" />
+            </form>
+        </td>
+        <td class="type2">
+            <form action="wasm-bench-crypto-master-original/index.wasm.html">
+                <input type="submit" value="SHA-256 Hashing" class="button"/>
+            </form>
+            <form action="wasm-bench-crypto-master-original/auto.html">
+                <input type="submit" test_only value="SHA-256 Hashing_auto_test_only"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <th>Game</th>
+        <td class="type1">
+            <form action="zombie-breakout-master/docs/index.html">
+                <input type="submit" value="Zombie Breakout" class="button"/>
+            </form>
+            <form action="zombie-breakout-master/docs/auto.html">
+                <input type="submit" test_only value="Zombie Breakout_auto_test_only" />
+            </form>
+        </td>
+        <td class="type2">
+            <form action="go-wasm-ball-drop-game-master/index.html">
+                <input type="submit" value="Ball Drop Game" class="button"/>
+            </form>
+            <form action="go-wasm-ball-drop-game-master/auto.html">
+                <input type="submit" test_only value="Ball Drop Game_auto_test_only"/>
+            </form>
+        </td>
+        <td class="type1">
+            <form action="rocket_wasm-master/html/index.html">
+                <input type="submit" value="Rocket Game" class="button"/>
+            </form>
+            <form action="rocket_wasm-master/html/auto.html">
+                <input type="submit" test_only value="Rocket Game_auto_test_only"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <th>JS to WASM Calls</th>
+        <td class="type1">
+            <form action="perf-wasm-calls-gh-pages/index.html">
+                <input type="submit" value="JS to WASM Calls" class="button"/>
+            </form>
+            <form action="perf-wasm-calls-gh-pages/auto.html">
+                <input type="submit" test_only value="JS to WASM Calls_auto_test_only"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <th>Image Processing</th>
+        <td class="type1">
+            <form action="wasm-processing-test-master/index.html">
+                <input type="submit" value="Image Processing" class="button"/>
+            </form>
+            <form action="wasm-processing-test-master/auto.html">
+                <input type="submit" test_only value="Image Processing_auto_test_only"/>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <th>Graphics</th>
+        <td class="type1">
+            <form action="wasm-rotating-cube-master/index.html">
+                <input type="submit" value="Rotating Cube" class="button"/>
+            </form>
+            <form action="wasm-rotating-cube-master/auto.html">
+                <input type="submit" test_only value="Rotating Cube_auto_test_only"/>
+            </form>
+        </td>
+    </tr>
+</table>
 
 </body>
 </html>
